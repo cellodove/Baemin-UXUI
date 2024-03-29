@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/background_material_light"
     tools:context=".ui.home.HomeFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -69,6 +70,7 @@
 
 
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipe_refresh"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layout_constraintTop_toBottomOf="@+id/appBar"
@@ -76,12 +78,648 @@
 
         <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
-            android:layout_height="0dp">
+            android:layout_height="0dp"
+            app:layout_constraintTop_toBottomOf="@+id/appBar"
+            app:layout_constraintBottom_toBottomOf="parent">
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
+                <LinearLayout
+                    android:id="@+id/search_bar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:paddingBottom="5dp"
+                    android:paddingStart="5dp"
+                    android:paddingEnd="5dp"
+                    android:gravity="center"
+                    android:background="@drawable/layout_bottom_round_mint">
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:padding="10dp"
+                        android:background="@drawable/layout_round_white"
+                        android:hint="찾아라! 맛있는 음식과 맛집"
+                        android:textSize="15sp"
+                        android:drawableLeft="@drawable/baseline_search_24"
+                        android:drawablePadding="10dp"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/coupon_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@+id/search_bar"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginTop="10dp"
+                    android:padding="10dp"
+                    android:background="@drawable/layout_round_stroke_gradient"
+                    android:gravity="center"
+                    android:clickable="true"
+                    android:orientation="horizontal"
+                    android:visibility="gone"
+                    tools:visibility="visible">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintTop_toBottomOf="@+id/search_bar"
+                        android:textSize="15sp"
+                        android:text="세븐일레븐"
+                        android:textColor="@color/black"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintTop_toBottomOf="@+id/search_bar"
+                        android:text=" 무제한 5천원 쿠폰"
+                        android:textSize="15sp"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"/>
+
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_marginStart="10dp"
+                        android:src="@drawable/coupon"/>
+                </LinearLayout>
+
+
+
+
+
+
+
+
+
+
+
+
+                <LinearLayout
+                    android:id="@+id/mart_type"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    android:orientation="horizontal"
+                    android:gravity="center"
+                    app:layout_constraintTop_toBottomOf="@+id/coupon_button">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/mart_type1"
+                        android:layout_width="120dp"
+                        android:layout_height="100dp"
+                        android:layout_margin="5dp"
+                        android:elevation="5dp"
+                        android:clickable="true"
+                        android:background="@drawable/layout_round_white_15">
+                        <TextView
+                            android:id="@+id/mart_type_title1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginStart="5dp"
+                            android:text="가게배달"
+                            android:textColor="@color/black"
+                            android:textStyle="bold"
+                            android:textSize="@dimen/box_title_text_size"/>
+
+                        <TextView
+                            android:id="@+id/mart_type_content1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="5dp"
+                            app:layout_constraintTop_toBottomOf="@+id/mart_type_title1"
+                            app:layout_constraintStart_toStartOf="parent"
+                            android:text="가게에서\n자체 배달"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/box_content_text_size"/>
+
+                        <ImageView
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            android:layout_margin="5dp"
+                            android:src="@drawable/mart_type_image1"/>
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/mart_type2"
+                        android:layout_width="120dp"
+                        android:layout_height="100dp"
+                        android:layout_margin="5dp"
+                        android:elevation="5dp"
+                        android:clickable="true"
+                        android:background="@drawable/layout_round_white_15">
+                        <TextView
+                            android:id="@+id/mart_type_title2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginStart="5dp"
+                            android:text="B마트"
+                            android:textColor="@color/black"
+                            android:textStyle="bold"
+                            android:textSize="@dimen/box_title_text_size"/>
+
+                        <TextView
+                            android:id="@+id/mart_type_content2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="5dp"
+                            app:layout_constraintTop_toBottomOf="@+id/mart_type_title2"
+                            app:layout_constraintStart_toStartOf="parent"
+                            android:text="바나나\n배달어때요"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/box_content_text_size"/>
+
+                        <ImageView
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:layout_margin="5dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            android:src="@drawable/mart_type_image2"/>
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/mart_type3"
+                        android:layout_width="120dp"
+                        android:layout_height="100dp"
+                        android:layout_margin="5dp"
+                        android:elevation="5dp"
+                        android:clickable="true"
+                        android:background="@drawable/layout_round_white_15">
+                        <TextView
+                            android:id="@+id/mart_type_title3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginStart="5dp"
+                            android:text="배민스토어"
+                            android:textColor="@color/black"
+                            android:textStyle="bold"
+                            android:textSize="@dimen/box_title_text_size"/>
+
+                        <TextView
+                            android:id="@+id/mart_type_content3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="5dp"
+                            app:layout_constraintTop_toBottomOf="@+id/mart_type_title3"
+                            app:layout_constraintStart_toStartOf="parent"
+                            android:text="배달은 지금\n옵니다"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/box_content_text_size"/>
+
+                        <ImageView
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:layout_margin="5dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            android:src="@drawable/mart_type_image3"/>
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </LinearLayout>
+
+
+
+
+
+
+
+
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/baemin_delivery_container"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@+id/mart_type"
+                    app:layout_constraintBottom_toTopOf="@+id/ad_viewpager_container"
+                    android:background="@drawable/layout_round_white_15"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginEnd="15dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:padding="5dp"
+                    android:elevation="5dp">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/baemin_delivery_title_container"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <TextView
+                            android:id="@+id/baemin_delivery_title"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            android:text="배민배달"
+                            android:textSize="@dimen/box_title_text_size"
+                            android:textColor="@color/black"
+                            android:textStyle="bold"/>
+
+                        <TextView
+                            android:id="@+id/baemin_delivery_content"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            app:layout_constraintTop_toTopOf="@+id/baemin_delivery_title"
+                            app:layout_constraintBottom_toBottomOf="@+id/baemin_delivery_title"
+                            app:layout_constraintStart_toEndOf="@+id/baemin_delivery_title"
+                            app:layout_constraintEnd_toStartOf="@+id/arrow_forward"
+                            android:layout_marginStart="5dp"
+                            android:gravity="bottom"
+                            android:textSize="@dimen/box_content_text_size"
+                            android:textColor="@color/black"
+                            android:text="알뜰.한집 배민이 직접 챙겨요"/>
+
+                        <ImageView
+                            android:id="@+id/arrow_forward"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:layout_constraintTop_toTopOf="@+id/baemin_delivery_title"
+                            app:layout_constraintBottom_toBottomOf="@+id/baemin_delivery_title"
+                            app:layout_constraintStart_toEndOf="@+id/baemin_delivery_content"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            android:layout_marginEnd="5dp"
+                            android:src="@drawable/baseline_arrow_forward_ios_24"/>
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+
+
+
+
+
+                    <LinearLayout
+                        android:id="@+id/baemin_delivery_category"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintTop_toBottomOf="@+id/baemin_delivery_title_container"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        android:layout_marginTop="5dp"
+                        android:orientation="vertical">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:orientation="horizontal"
+                            android:weightSum="5">
+
+                            <LinearLayout
+                                android:id="@+id/baemin_delivery_category1"
+                                android:layout_width="50dp"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:padding="5dp"
+                                android:orientation="vertical"
+                                android:clickable="true"
+                                android:layout_weight="1">
+
+                                <ImageView
+                                    android:layout_width="40dp"
+                                    android:layout_height="40dp"
+                                    android:src="@drawable/baemin_delivery_image1"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textSize="@dimen/box_content_text_size"
+                                    android:textColor="@color/black"
+                                    android:text="족발.보쌈"/>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/baemin_delivery_category2"
+                                android:layout_width="50dp"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:padding="5dp"
+                                android:clickable="true"
+                                android:orientation="vertical"
+                                android:layout_weight="1">
+
+                                <ImageView
+                                    android:layout_width="40dp"
+                                    android:layout_height="40dp"
+                                    android:src="@drawable/baemin_delivery_image2"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textSize="@dimen/box_content_text_size"
+                                    android:textColor="@color/black"
+                                    android:text="돈까스.회"/>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/baemin_delivery_category3"
+                                android:layout_width="50dp"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:padding="5dp"
+                                android:clickable="true"
+                                android:orientation="vertical"
+                                android:layout_weight="1">
+
+                                <ImageView
+                                    android:layout_width="40dp"
+                                    android:layout_height="40dp"
+                                    android:src="@drawable/baemin_delivery_image3"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textSize="@dimen/box_content_text_size"
+                                    android:textColor="@color/black"
+                                    android:text="피자"/>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/baemin_delivery_category4"
+                                android:layout_width="50dp"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:padding="5dp"
+                                android:clickable="true"
+                                android:orientation="vertical"
+                                android:layout_weight="1">
+
+                                <ImageView
+                                    android:layout_width="40dp"
+                                    android:layout_height="40dp"
+                                    android:src="@drawable/baemin_delivery_image4"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textSize="@dimen/box_content_text_size"
+                                    android:textColor="@color/black"
+                                    android:text="중식"/>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/baemin_delivery_category5"
+                                android:layout_width="50dp"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:padding="5dp"
+                                android:clickable="true"
+                                android:orientation="vertical"
+                                android:layout_weight="1">
+
+                                <ImageView
+                                    android:layout_width="40dp"
+                                    android:layout_height="40dp"
+                                    android:src="@drawable/baemin_delivery_image5"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textSize="@dimen/box_content_text_size"
+                                    android:textColor="@color/black"
+                                    android:text="치킨"/>
+                            </LinearLayout>
+                        </LinearLayout>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:orientation="horizontal"
+                            android:weightSum="5">
+
+                            <LinearLayout
+                                android:id="@+id/baemin_delivery_category6"
+                                android:layout_width="50dp"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:padding="5dp"
+                                android:clickable="true"
+                                android:orientation="vertical"
+                                android:layout_weight="1">
+
+                                <ImageView
+                                    android:layout_width="40dp"
+                                    android:layout_height="40dp"
+                                    android:src="@drawable/baemin_delivery_image6"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textSize="@dimen/box_content_text_size"
+                                    android:textColor="@color/black"
+                                    android:text="버거"/>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/baemin_delivery_category7"
+                                android:layout_width="50dp"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:padding="5dp"
+                                android:clickable="true"
+                                android:orientation="vertical"
+                                android:layout_weight="1">
+
+                                <ImageView
+                                    android:layout_width="40dp"
+                                    android:layout_height="40dp"
+                                    android:src="@drawable/baemin_delivery_image7"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textSize="@dimen/box_content_text_size"
+                                    android:textColor="@color/black"
+                                    android:text="분식"/>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/baemin_delivery_category8"
+                                android:layout_width="50dp"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:padding="5dp"
+                                android:clickable="true"
+                                android:orientation="vertical"
+                                android:layout_weight="1">
+
+                                <ImageView
+                                    android:layout_width="40dp"
+                                    android:layout_height="40dp"
+                                    android:src="@drawable/baemin_delivery_image8"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textSize="@dimen/box_content_text_size"
+                                    android:textColor="@color/black"
+                                    android:text="디저트"/>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/baemin_delivery_category9"
+                                android:layout_width="50dp"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:padding="5dp"
+                                android:clickable="true"
+                                android:orientation="vertical"
+                                android:layout_weight="1">
+
+                                <ImageView
+                                    android:layout_width="40dp"
+                                    android:layout_height="40dp"
+                                    android:src="@drawable/baemin_delivery_image9"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textSize="@dimen/box_content_text_size"
+                                    android:textColor="@color/black"
+                                    android:text="찜.찌개"/>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/baemin_delivery_category10"
+                                android:layout_width="50dp"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:padding="5dp"
+                                android:clickable="true"
+                                android:orientation="vertical"
+                                android:layout_weight="1">
+
+                                <ImageView
+                                    android:layout_width="40dp"
+                                    android:layout_height="40dp"
+                                    android:src="@drawable/baemin_delivery_image10"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textSize="@dimen/box_content_text_size"
+                                    android:textColor="@color/black"
+                                    android:text="전체보기"/>
+                            </LinearLayout>
+                        </LinearLayout>
+                    </LinearLayout>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/ad_viewpager_container"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginEnd="15dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    app:cardCornerRadius="10dp"
+                    app:layout_constraintTop_toBottomOf="@+id/baemin_delivery_container"
+                    app:layout_constraintBottom_toBottomOf="parent">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <androidx.viewpager2.widget.ViewPager2
+                            android:id="@+id/ad_viewpager"
+                            android:layout_width="match_parent"
+                            android:layout_height="130dp"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"/>
+
+                        <LinearLayout
+                            android:id="@+id/viewpager_indicator_container"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="10dp"
+                            android:layout_marginBottom="10dp"
+                            android:paddingTop="5dp"
+                            android:paddingBottom="5dp"
+                            android:paddingStart="10dp"
+                            android:paddingEnd="10dp"
+                            android:orientation="horizontal"
+                            app:layout_constraintEnd_toEndOf="@+id/ad_viewpager"
+                            app:layout_constraintBottom_toBottomOf="@+id/ad_viewpager"
+                            android:background="@drawable/layout_round_black"
+                            android:gravity="center">
+                            <TextView
+                                android:id="@+id/viewpager_indicator"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textSize="10sp"
+                                tools:text="15 / 15"
+                                android:textColor="@color/white"/>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="모두보기"
+                                android:textSize="10sp"
+                                android:textStyle="bold"
+                                android:layout_marginStart="5dp"
+                                android:textColor="@color/white"/>
+                            <ImageView
+                                android:layout_width="10dp"
+                                android:layout_height="10dp"
+                                android:layout_marginStart="5dp"
+                                android:src="@drawable/baseline_arrow_forward_ios_24_white"/>
+
+                        </LinearLayout>
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                </androidx.cardview.widget.CardView>
+
+
+
+
+
+
+
+
+
+
+
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.core.widget.NestedScrollView>
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
-    
-    
-    
+
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
