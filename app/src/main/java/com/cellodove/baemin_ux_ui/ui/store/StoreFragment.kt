@@ -1,4 +1,4 @@
-package com.cellodove.baemin_ux_ui.ui.dashboard
+package com.cellodove.baemin_ux_ui.ui.store
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,7 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.cellodove.baemin_ux_ui.databinding.FragmentDashboardBinding
 
-class DashboardFragment : Fragment() {
+class StoreFragment : Fragment() {
 
     private var _binding: FragmentDashboardBinding? = null
 
@@ -22,14 +22,14 @@ class DashboardFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val dashboardViewModel =
-            ViewModelProvider(this).get(DashboardViewModel::class.java)
+        val storeViewModel =
+            ViewModelProvider(this).get(StoreViewModel::class.java)
 
         _binding = FragmentDashboardBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
         val textView: TextView = binding.textDashboard
-        dashboardViewModel.text.observe(viewLifecycleOwner) {
+        storeViewModel.text.observe(viewLifecycleOwner) {
             textView.text = it
         }
         return root

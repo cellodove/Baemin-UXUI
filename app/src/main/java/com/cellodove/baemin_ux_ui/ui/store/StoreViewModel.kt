@@ -1,10 +1,10 @@
-package com.cellodove.baemin_ux_ui.ui.dashboard
+package com.cellodove.baemin_ux_ui.ui.store
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
-class DashboardViewModel : ViewModel() {
+class StoreViewModel : ViewModel() {
 
     private val _text = MutableLiveData<String>().apply {
         value = "This is dashboard Fragment"
